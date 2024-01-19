@@ -1,0 +1,32 @@
+;
+; mqtt_pingpong_wathcer.conf - for supervisord configuration file
+;
+; install
+;     $ sudo apt-get install supervisor
+;     $ pwd
+;       (check your scrpt path...)
+;     $ sudo cp mqtt_pingpong_wathcer.conf.sample /etc/supervisor/conf.d/mqtt_pingpong_wathcer.conf
+;     $ sudo vi /etc/supervisor/conf.d/mqtt_pingpong_wathcer.conf
+;       (fix path, etc...)
+;     $ sudo supervisorctl update
+;     mqtt_pingpong_wathcer: added process group
+;     $ sudo supervisorctl status
+;     mqtt_pingpong_wathcer        RUNNING    pid 8192, uptime 0:00:30
+;
+; see also
+;     Supervisor: A Process Control System
+;     http://supervisord.org/
+;
+[program:mqtt_pingpong_wathcer]
+command                 = python3 mqtt_pingpong_wathcer.py
+directory               = /home/pi/work/mqtt_pingpong_wathcer/
+user                    = pi
+numprocs                = 1
+autostart               = true
+autorestart             = true
+redirect_stderr         = true
+stdout_logfile          = /home/pi/work/mqtt_pingpong_wathcer/log.txt
+startsecs               = 5
+startretries            = 10
+stdout_logfile_maxbytes = 1MB
+stdout_logfile_backups  = 1

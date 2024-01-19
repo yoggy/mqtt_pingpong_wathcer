@@ -1,0 +1,10 @@
+mqtt_host: mqtt.beebotte.com
+mqtt_port: 1883
+mqtt_client_id: mqtt_pingpong_watcher
+mqtt_use_auth: true
+mqtt_username: token_xxxxxxxxxxxxxxxx
+mqtt_password: 
+mqtt_subscribe_topic: channel_name/resources_name
+http2mqtt_url: https://example.com/path/to/http2mqtt.cgi
+http2mqtt_topic: sample/topic
+http2mqtt_message: ボタンおされた
